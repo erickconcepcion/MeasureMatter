@@ -1,0 +1,24 @@
+<div class="item-container" >
+  <mat-form-field class="item-3" appearance="fill">
+    <mat-label>Ingrediente</mat-label>
+    <input matInput matInput
+    #itemInput
+    [formControl]="itemControl"
+    [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option [value]="null">
+        - Agregar Ingrediente -
+      </mat-option>
+      <mat-option *ngFor="let item of filteredOptions | async" [value]="item">
+        {{item.item}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="item-3" appearance="fill">
+    <mat-label>Cantidad ({{ingredient.unit}})</mat-label>
+    <input matInput type="number" min="0" matInput [(ngModel)] = "ingredient.quantity">
+  </mat-form-field>
+  <button mat-icon-button color="warn" aria-label="Remove" (click)="deleteRequest()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,52 @@
+<h2>Creacion de producto</h2>
+<mat-card>
+  <mat-card-content>
+    <div class="item-container">
+      <div class="item-1">
+        <p class="label">Producto:</p>
+      </div>
+      <div class="item-3">
+        <mat-form-field appearance="fill" class="max">
+          <mat-label>Nombre del Producto</mat-label>
+          <input matInput [value]="product.product">
+        </mat-form-field>
+      </div>
+      <div class="item-1">
+        <button class="product-add" mat-fab color="primary" (click)="addLayer()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="accordion.openAll()">Expandir Capas</button>
+    <button mat-button (click)="accordion.closeAll()">Colapsar Capas</button>
+  </mat-card-actions>
+</mat-card>
+<br/>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel *ngFor="let layer of layers">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <p class="label center">{{layer.layer.layer}}</p>
+      </mat-panel-title>
+      
+    </mat-expansion-panel-header>
+    <div *ngIf="layer.edit">
+      <mat-form-field appearance="standard" class="max">
+        <mat-label>Capa</mat-label>
+        <input matInput [(ngModel)] = "layer.layer.layer" (change)="toggleEditLayer(layer)"/>
+      </mat-form-field>
+    </div>
+    <div *ngFor="let ingredient of layer.layer.consumables">
+      <app-layer-item-editor (deleteRequested)="deleteConsumable($event, layer)" [ingredient]="ingredient" [items]="allItems"></app-layer-item-editor>
+    </div>
+    
+    <mat-action-row>
+      <button mat-button color="primary" (click)="toggleEditLayer(layer)">{{layer.edit ? 'Guardar' : 'Editar'}}</button>
+      <button mat-button color="primary" (click)="addConsumable(layer)">Agregar ingrediente</button>
+      <button mat-button color="warn" (click)="deleteLayer(layer)">Borrar capa</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+

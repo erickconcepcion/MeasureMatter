@@ -1,0 +1,44 @@
+.quote-row {
+    font-size: small;
+    text-align: center;
+}
+p {
+    margin-top: 10px;
+}
+p.center{
+    text-align: center;
+}
+.item-row{
+    border-bottom: solid;
+    border-width: 1px;
+}
+p.label {
+    font-size: large;
+    font-weight: 500;
+    
+}
+mat-form-field.max {
+    width: 95%;
+}
+.layer-container{
+    margin-left: 2%;
+}
+button.product-add{
+    margin-left: 4%;
+}
+
+//expansion example
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+//end expansion

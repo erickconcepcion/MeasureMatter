@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.item-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: center;
+    
+}
+.item-2 {
+    flex: 1;
+    flex-grow: 2;
+}
+.item-1 {
+    flex: 1;
+    flex-grow: 1;
+}
+.item-3 {
+    flex: 1;
+    flex-grow: 3;
+}

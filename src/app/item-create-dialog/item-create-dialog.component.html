@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Creacion de insumo</h1>
+<div mat-dialog-content>
+  <p>Para crear un consumible se necesita un ingrediente con precio</p>
+  <form [formGroup]="ingredientForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Consumible</mat-label>
+      <input matInput placeholder="Consumible" [formControl]="itemControl" required>
+      <mat-error *ngIf="itemControl.invalid">Este campo no es valido</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Producto</mat-label>
+      <input matInput placeholder="Producto" [formControl]="ingredientControl" required>
+      <mat-error *ngIf="ingredientControl.invalid">Este campo no es valido</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cantidad de empaque</mat-label>
+      <input matInput placeholder="Cantidad" [formControl]="qtyControl" required>
+      <mat-error *ngIf="qtyControl.invalid">Este campo no es valido</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Unidad</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let unit of units" [value]="unit.unit">{{unit.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Precio de empaque</mat-label>
+      <input matInput placeholder="Precio" [formControl]="priceControl" required>
+      <mat-error *ngIf="priceControl.invalid">Este campo no es valido</mat-error>
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="onCancel()">Cancelar</button>
+  <button mat-button [disabled]="!ingredientForm.valid" >Crear</button>
+</div>
