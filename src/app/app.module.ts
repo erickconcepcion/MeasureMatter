@@ -27,9 +27,10 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ItemCreateDialogComponent } from './item-create-dialog/item-create-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
     NavBarComponent,
     NotFoundComponent,
@@ -37,7 +38,8 @@ import { MatSelectModule } from '@angular/material/select';
     ProductComponent,
       LayerItemEditorComponent,
       DeleteDialogComponent,
-      ItemCreateDialogComponent
+      ItemCreateDialogComponent,
+      OrderComponent
    ],
   imports: [
     BrowserModule,
