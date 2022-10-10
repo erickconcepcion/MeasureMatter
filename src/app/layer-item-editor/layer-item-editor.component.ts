@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { Consumable } from '../entities/consumable';
 import { Item } from '../entities/item';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {Observable, Subject} from 'rxjs';
 import {map, startWith, takeUntil} from 'rxjs/operators';
@@ -15,7 +15,7 @@ import { Output, EventEmitter } from '@angular/core';
 export class LayerItemEditorComponent implements OnInit, OnDestroy {
   $destroyer = new Subject();
 
-  itemControl = new FormControl();
+  itemControl = new UntypedFormControl();
   filteredOptions!: Observable<Item[]>;
   
   @ViewChild('itemInput') itemInput!: ElementRef<HTMLInputElement>;

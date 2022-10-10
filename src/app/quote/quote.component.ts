@@ -8,7 +8,7 @@ import { Ingredient } from '../entities/ingredient';
 import { Consumable } from '../entities/consumable';
 import { QuoteItem } from '../entities/quote-item';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
@@ -32,7 +32,7 @@ export class QuoteComponent implements OnInit {
 
   //chips
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  productCtrl = new FormControl();
+  productCtrl = new UntypedFormControl();
   filteredProducts!: Observable<Product[]>;
 
   @ViewChild('productInput') productInput!: ElementRef<HTMLInputElement>;
